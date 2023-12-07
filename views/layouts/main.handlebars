@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var bodyClass = document.body.classList;
+
+            if (bodyClass.contains('home')) {
+                // Trang Home
+                var homeIntroduction = document.querySelector('.home-introduction');
+                if (homeIntroduction) {
+                    homeIntroduction.style.display = 'block';
+                }
+            } else if (bodyClass.contains('about')) {
+                // Trang About
+                var inquirySection = document.querySelector('.inquiry-section');
+                if (inquirySection) {
+                    inquirySection.style.display = 'block';
+                }
+            }
+        });
+    </script>
+    
+</head>
+<body class="{{pageClass}}">
+    <header class="header">
+        <h1>{{title}}</h1>
+        <img src="/img/logo.png" alt="ABCXYZ">
+    </header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/" class="home">Home</a></li>
+            <li><a href="/about" class="about">About</a></li>
+            <li><a href="/product" class="product-page">Product</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        {{#if isHome}}
+            <section class="home-introduction">
+                <h2>Welcome to Our Website!</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec eros ac massa euismod semper. 
+                    Suspendisse potenti. Proin sit amet consectetur ligula. Integer quis ligula elit. Sed sagittis 
+                    luctus dui, vel vulputate purus eleifend a.
+                </p>
+            </section>
+        {{/if}}
+
+        {{#if isAbout}}
+            <section class="inquiry-section">
+                <h2>Have Questions?</h2>
+                <p>
+                    If you have any questions or concerns, please feel free to contact us. We are here to help!
+                </p>
+            </section>
+        {{/if}}
+
+        {{{body}}}
+    </div>
+    <footer class="footer">
+        &copy; 2023 Your Company
+    </footer>
+</body>
+</html>
+
